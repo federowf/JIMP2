@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "managestate.h"
 
 
 char** managestate(char** table,int enditeration, int length, int width){
@@ -40,9 +41,12 @@ char** managestate(char** table,int enditeration, int length, int width){
 
             for (j = 0; j < length; j++) {
 
-                if (table[i][j] == '0' && (lifetable[i][j] == 2 || lifetable[i][j] == 3)) table[i][j] = '0';
-                if (table[i][j] == '0' && (lifetable[i][j] != 2 || lifetable[i][j] != 3)) table[i][j] = '#';
-                if (table[i][j] == '#' && lifetable[i][j] == 3) table[i][j] = '0';
+                if(lifetable[i][j]==3){
+                    table[i][j] = '0';
+                }
+                else if(lifetable[i][j] != 2){
+                    table[i][j] = '#';
+                }
 
             }
         }
