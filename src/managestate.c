@@ -3,7 +3,7 @@
 #include "managestate.h"
 #include "upload.h"
 
-void managestate(game_struct* temp, int ifMoore){
+void managestate(game_struct* temp, int ifMoore, int end_iteration){
     int i;
     int j;
     int countneightbours = 0;
@@ -13,7 +13,11 @@ void managestate(game_struct* temp, int ifMoore){
         lifetable[i]=(int*)malloc(temp->width * sizeof(int));
     }
 
-    while (temp->iteration < temp->max_iteration) {
+    if (end_iteration > temp->max_iteration){
+        printf("No, can do babydoll");
+    }
+
+    while (temp->iteration <= end_iteration) {
 
         for (i = 0; i < temp->width; i++) {
 
