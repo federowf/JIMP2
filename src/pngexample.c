@@ -6,7 +6,7 @@
 #include <png.h>
 #include "upload.h"
 
-void zapis_png (base_struct* main_game_data) {
+void zapis_png (game_struct* main_game_data) {
     int x, y;
     int width, height;
     png_byte color_type;
