@@ -3,7 +3,7 @@
 
 
 typedef struct base_struct{
-char** table;
+int** table;
 int width; //wczytana
 int length; // wczytana
 int iteration;

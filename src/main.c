@@ -29,7 +29,7 @@ int main(int argc, char** argv){
     for(int i = 0; i < main_game_data->width; i++){
         printf("\n");
         for(int j = 0; j < main_game_data->length; j++){
-            printf("%c",main_game_data->table[i][j]);
+            printf("%d",main_game_data->table[i][j]);
         }
     }
 
@@ -46,7 +46,7 @@ int main(int argc, char** argv){
         for(int i = 0; i < main_game_data->width; i++){
             printf("\n");
             for(int j = 0; j < main_game_data->length; j++){
-                printf("%c",main_game_data->table[i][j]);
+                printf("%d",main_game_data->table[i][j]);
             }
         }
         printf("\n");
