@@ -18,16 +18,17 @@ void zapis_png (game_struct* main_game_data) {
     png_bytep * row_pointers;
 
     bit_depth = 8;
+
     color_type = PNG_COLOR_TYPE_GRAY;
 
     number_of_passes = 7;
-    row_pointers = ( png_bytep* ) malloc ( sizeof ( png_bytep ) * l_rzedow );
-    for ( y = 0; y < l_rzedow; y++ )
-        row_pointers[y] = ( png_byte* ) malloc( sizeof ( png_byte ) * l_kolumn );
+    row_pointers = ( png_bytep* ) malloc ( sizeof ( png_bytep ) * main_game_data->length );
+    for ( y = 0; y < main_game_data->length; y++ )
+        row_pointers[y] = ( png_byte* ) malloc( sizeof ( png_byte ) * main_game_data->width );
 
-    for ( y = 0; y < l_rzedow; y++ ) {
+    for ( y = 0; y < main_game_data->length; y++ ) {
         png_byte* row = row_pointers[y];
-        for ( x = 0; x < l_kolumn; x++ ) {
+        for ( x = 0; x < main_game_data->width; x++ ) {
             row[x] = main_game_data->table[y + 1][x + 1] == 1 ? 0 : 255;
         }
     }
@@ -53,7 +54,7 @@ void zapis_png (game_struct* main_game_data) {
     if ( setjmp ( png_jmpbuf ( png_ptr ) ) )
         printf ( "[write_png_file] Error during writing header" );
 
-    png_set_IHDR ( png_ptr, info_ptr, l_kolumn, l_rzedow,
+    png_set_IHDR ( png_ptr, info_ptr, main_game_data->width, main_game_data->length,
                    bit_depth, color_type, PNG_INTERLACE_NONE,
                    PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE );
 
@@ -70,7 +71,7 @@ void zapis_png (game_struct* main_game_data) {
     png_write_end ( png_ptr, NULL );
     png_destroy_write_struct ( &png_ptr, &info_ptr );
 
-    for ( y = 0; y < l_rzedow; y++ )
+    for ( y = 0; y < main_game_data->length; y++ )
         free ( row_pointers[y] );
     free ( row_pointers );
 
