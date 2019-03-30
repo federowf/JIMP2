@@ -1,3 +1,6 @@
+#ifndef ENVIROMENT_GAME_OF_LIFE_H
+#define ENVIROMENT_GAME_OF_LIFE_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "upload.h"
@@ -10,3 +13,4 @@ void forced_by_user_gamespace(user_coordinates_t* coordinates, game_struct* temp
 
 void randomize_gamespace(game_struct* temp);
 
+#endif

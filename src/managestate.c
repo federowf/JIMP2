@@ -53,7 +53,6 @@ void managestate(game_struct* temp, int ifMoore, int end_iteration){
                 else if(lifetable[i][j] != 2){
                     temp->table[i][j] = '#';
                 }
-
             }
         }
         temp->iteration++;

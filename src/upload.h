@@ -1,3 +1,7 @@
+#ifndef UPLOAD_GAME_OF_LIFE_H
+#define UPLOAD_GAME_OF_LIFE_H
+
+
 typedef struct base_struct{
 char** table;
 int width;
@@ -12,3 +16,6 @@ typedef struct user_coordinates{
     int y;
     struct user_coordinates* next;
 }user_coordinates_t;
+
+
+#endif
