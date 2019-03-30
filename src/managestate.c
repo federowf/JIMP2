@@ -24,17 +24,17 @@ void managestate(game_struct* temp, int ifMoore, int end_iteration){
             for (j = 0; j < temp->length; j++) {
 
 
-                if (temp->table[i][j - 1] == '0' && j > 0) countneightbours++;
-                if (temp->table[i - 1][j] == '0' && i > 0 && j > 0) countneightbours++;
-                if (temp->table[i + 1][j] == '0' && j > 0 && i < temp->width - 1) countneightbours++;
-                if (temp->table[i][j + 1] == '0' && j < temp->length - 1) countneightbours++;
+                if (temp->table[i][j - 1] == '#' && j > 0) countneightbours++;
+                if (temp->table[i - 1][j] == '#' && i > 0 && j > 0) countneightbours++;
+                if (temp->table[i + 1][j] == '#' && j > 0 && i < temp->width - 1) countneightbours++;
+                if (temp->table[i][j + 1] == '#' && j < temp->length - 1) countneightbours++;
 
 
                 if(ifMoore == 0){
-                    if (temp->table[i - 1][j - 1] == '0' && i > 0 && j > 0) countneightbours++;
-                    if (temp->table[i - 1][j + 1] == '0' && i > 0 && j < temp->length - 1) countneightbours++;
-                    if (temp->table[i + 1][j + 1] == '0' && j < temp->length - 1 && i < temp->width - 1) countneightbours++;
-                    if (temp->table[i + 1][j - 1] == '0' && j > 0 && i < temp->width - 1) countneightbours++;
+                    if (temp->table[i - 1][j - 1] == '#' && i > 0 && j > 0) countneightbours++;
+                    if (temp->table[i - 1][j + 1] == '#' && i > 0 && j < temp->length - 1) countneightbours++;
+                    if (temp->table[i + 1][j + 1] == '#' && j < temp->length - 1 && i < temp->width - 1) countneightbours++;
+                    if (temp->table[i + 1][j - 1] == '#' && j > 0 && i < temp->width - 1) countneightbours++;
                 }
 
                 lifetable[i][j] = countneightbours;
@@ -48,10 +48,10 @@ void managestate(game_struct* temp, int ifMoore, int end_iteration){
             for (j = 0; j < temp->length; j++) {
 
                 if(lifetable[i][j]==3){
-                    temp->table[i][j] = '0';
+                    temp->table[i][j] = '#';
                 }
                 else if(lifetable[i][j] != 2){
-                    temp->table[i][j] = '#';
+                    temp->table[i][j] = '-';
                 }
             }
         }

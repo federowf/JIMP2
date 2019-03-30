@@ -19,6 +19,9 @@ int main(int argc, char** argv){
 
     blank_gamespace(main_game_data);
 
+    randomize_gamespace(main_game_data);
+
+
 
 
     return 0;

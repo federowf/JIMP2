@@ -20,7 +20,7 @@ void blank_gamespace (game_struct* main_game_data) {
 
     for(i = 0; i < temp->width; i++){
         for(j = 0; j < temp->length; j++){
-            temp->table[i][j] = '#';
+            temp->table[i][j] = '-';
         }
     }
 
@@ -40,10 +40,10 @@ void randomize_gamespace(game_struct* temp) {
             rand1 = rand() % temp->width;
             rand2 = rand() % temp->length;
 
-            if(temp->table[rand1][rand2] == '0') i--;
+            if(temp->table[rand1][rand2] == '#') i--;
 
             else{
-            temp->table[rand1][rand2] = '0';
+            temp->table[rand1][rand2] = '#';
             }
         }
 }
