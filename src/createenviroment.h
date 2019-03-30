@@ -7,7 +7,7 @@
 
 
 
-game_struct* blank_gamespace (game_struct* list_t);
+void blank_gamespace (game_struct* list_t);
 
 void randomize_gamespace(game_struct* temp);
 

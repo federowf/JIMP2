@@ -3,15 +3,18 @@
 #include "createenviroment.h"
 #include "upload.h"
 
-game_struct* blank_gamespace (game_struct* list_t) {
+void blank_gamespace (game_struct* main_game_data) {
     int i;
     int j;
     game_struct* temp = malloc(sizeof(game_struct));
-    temp->table = (char**)malloc(temp->length * sizeof(char*));
+
+    temp = main_game_data;
+
+    temp->table = malloc(temp->length * sizeof(char*));
     for(i = 0; i < temp->length; i++){
-        temp->table[i]=(char*)malloc(temp->width * sizeof(char));
+        temp->table[i] = malloc(temp->width * sizeof(char));
     }
-    temp = list_t;
+
 
 
 
@@ -20,7 +23,8 @@ game_struct* blank_gamespace (game_struct* list_t) {
             temp->table[i][j] = '#';
         }
     }
-    return temp;
+
+    main_game_data = temp;
 }
 
 
@@ -31,7 +35,7 @@ void randomize_gamespace(game_struct* temp) {
     int rand2;
     int i;
 
-        for (int i = 0; i < temp->organism_count; i++) {
+        for (i = 0; i < temp->organism_count; i++) {
 
             rand1 = rand() % temp->width;
             rand2 = rand() % temp->length;

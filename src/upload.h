@@ -4,11 +4,13 @@
 
 typedef struct base_struct{
 char** table;
-int width;
-int length;
+int width; //wczytana
+int length; // wczytana
 int iteration;
-int max_iteration;
-int organism_count;
+int max_iteration; //wczytana
+int organism_count; // wczytana
 }game_struct;
+
+void unpack_the_data(FILE *in, game_struct *pStruct);
 
 #endif

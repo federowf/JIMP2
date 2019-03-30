@@ -2,20 +2,23 @@
 #include <stdlib.h>
 #include "upload.h"
 
-game_struct* unpack_the_data(FILE* in){
+void unpack_the_data(FILE* in, game_struct* result){
 
-    int cord_counter = 0;
+    int org_count;
+    int len;
+    int wid;
+    int max_it;
 
-    game_struct *result;
-    result = malloc(sizeof(game_struct));
+    fscanf(in,"%d %d %d %d", &len, &wid, &org_count, &max_it); //dimensions
 
-
-
-    in = fopen(in, "r");
-    fscanf(in,"%d %d %d", &(result->length), &(result->width), &(result->organism_count)); //dimensions
-
-
-
+    result->length = len;
+    result->width = wid;
+    result->organism_count = org_count;
+    result->max_iteration = max_it;
+    result->iteration = 0;
+    result->table = malloc(result->length * sizeof(char*));
+    for(int i = 0; i < result->length; i++){
+        result->table[i] = malloc(result->width * sizeof(char));
+    }
     fclose(in);
-    return result;
 }
