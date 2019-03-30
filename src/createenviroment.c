@@ -25,18 +25,6 @@ game_struct* blank_gamespace (game_struct* list_t) {
 
 
 
-void forced_by_user_gamespace(user_coordinates_t* coordinates, game_struct* temp){
-
-    while(coordinates != NULL){
-
-        temp->table[coordinates->x][coordinates->y]='0';
-        coordinates=coordinates->next;
-
-    }
-}
-
-
-
 void randomize_gamespace(game_struct* temp) {
 
     int rand1;
