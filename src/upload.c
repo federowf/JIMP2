@@ -8,9 +8,10 @@ void unpack_the_data(FILE* in, game_struct* result){
     int len;
     int wid;
     int max_it;
+    int frames;
     int ifMoore;
 
-    fscanf(in,"%d %d %d %d %d", &len, &wid, &org_count, &max_it, &ifMoore); //dimensions
+    fscanf(in,"%d %d %d %d %d %d", &len, &wid, &org_count, &max_it, &frames, &ifMoore); //dimensions
 
     result->length = len;
     result->width = wid;
@@ -18,6 +19,7 @@ void unpack_the_data(FILE* in, game_struct* result){
     result->max_iteration = max_it;
     result->iteration = 0;
     result->ifMoore = ifMoore;
+    result->frames_skip = frames;
     result->table = malloc(result->length * sizeof(char*));
     for(int i = 0; i < result->length; i++){
         result->table[i] = malloc(result->width * sizeof(char));

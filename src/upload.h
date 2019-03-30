@@ -7,6 +7,7 @@ char** table;
 int width; //wczytana
 int length; // wczytana
 int iteration;
+int frames_skip;
 int ifMoore;
 int max_iteration; //wczytana
 int organism_count; // wczytana
