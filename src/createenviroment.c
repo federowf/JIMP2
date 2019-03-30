@@ -5,7 +5,7 @@
 #include <time.h>
 
 
-
+/*do przejrzenia*/
 
 void blank_gamespace (game_struct* main_game_data) {
     int i;

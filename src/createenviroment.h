@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "upload.h"
 
-
+/*istereg*/
 
 void blank_gamespace (game_struct* main_game_data);
 
