@@ -14,9 +14,9 @@ void blank_gamespace (game_struct* main_game_data) {
 
     temp = main_game_data;
 
-    temp->table = malloc(temp->length * sizeof(char*));
-    for(i = 0; i < temp->length; i++){
-        temp->table[i] = malloc(temp->width * sizeof(char));
+    temp->table = malloc(temp->width * sizeof(char*));
+    for(i = 0; i < temp->width; i++){
+        temp->table[i] = malloc(temp->length * sizeof(char));
     }
 
 
@@ -41,8 +41,8 @@ void randomize_gamespace(game_struct* temp) {
     int i = temp->organism_count;
 
         while(i > 0){
-            rand1 = rand() % (temp->width - 1);
-            rand2 = rand() % (temp->length - 1);
+            rand1 = rand() % (temp->width);
+            rand2 = rand() % (temp->length);
 
             if(temp->table[rand1][rand2] == '-'){
 
