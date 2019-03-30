@@ -7,8 +7,7 @@
 int main(int argc, char** argv){
 
     if(argc != 2){
-        printf("Please attach only your data file, which should contain in order: length, width, organism count, \n"
-               "max iteration, how many frames would u like to skip and 0 if you want to simulate by Moores rules or 1 otherwise");
+        printf("Please attach only your data file, which should contain in order: length, width, organism count, max iteration, how many frames would u like to skip and 0 if you want to simulate by Moores rules or 1 otherwise");
         EXIT_FAILURE;
     }
 
