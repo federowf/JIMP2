@@ -8,9 +8,9 @@ void managestate(game_struct* temp, int end_iteration){
     int j;
     int countneightbours = 0;
 
-    int** lifetable = (int**)malloc(temp->length * sizeof(int*));
-    for(i = 0; i < temp->length; i++){
-        lifetable[i]=(int*)malloc(temp->width * sizeof(int));
+    int** lifetable = malloc(temp->width * sizeof(int*));
+    for(i = 0; i < temp->width; i++){
+        lifetable[i] = malloc(temp->length * sizeof(int));
     }
 
     if (end_iteration > temp->max_iteration){
