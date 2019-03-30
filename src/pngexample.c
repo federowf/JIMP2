@@ -6,7 +6,7 @@
 #include <png.h>
 #include "upload.h"
 
-void zapis_png (base_struct* main_game_data, char *output) {
+void zapis_png (base_struct* main_game_data) {
     int x, y;
     int width, height;
     png_byte color_type;
@@ -32,9 +32,9 @@ void zapis_png (base_struct* main_game_data, char *output) {
         }
     }
 
-    FILE *fp = fopen( output, "wb" );
+    FILE *fp = fopen("../bin", "wb" );
     if ( !fp )
-        printf ( "[write_png_file] File %s could not be opened for writing", output );
+        printf ( "[write_png_file] File %s could not be opened for writing", "../bin" );
 
     png_ptr = png_create_write_struct ( PNG_LIBPNG_VER_STRING, NULL, NULL, NULL );
 
