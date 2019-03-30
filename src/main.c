@@ -7,7 +7,7 @@
 int main(int argc, char** argv){
 
     if(argc != 2){
-        printf("Please attach only your data file, which should contain in order: length, width, organism count and max iteration");
+        printf("Please attach only your data file, which should contain in order: length, width, organism count, max iteration and 0 if you want to simulate by Moores rules or 1 otherwise");
         EXIT_FAILURE;
     }
 
@@ -17,17 +17,52 @@ int main(int argc, char** argv){
 
     unpack_the_data(in, main_game_data);
 
+    fclose(in);
+
     blank_gamespace(main_game_data);
 
-    randomize_gamespace(main_game_data);
 
 
     for(int i = 0; i < main_game_data->width; i++){
         printf("\n");
         for(int j = 0; j < main_game_data->length; j++){
-            printf("%c", main_game_data->table[i][j]);
+            printf("%c",main_game_data->table[i][j]);
         }
     }
+    printf("\n");
+
+
+
+    randomize_gamespace(main_game_data);
+
+    int i = 0;
+
+
+
+
+
+
+    for(int i = 0; i < main_game_data->width; i++){
+        printf("\n");
+        for(int j = 0; j < main_game_data->length; j++){
+            printf("%c",main_game_data->table[i][j]);
+        }
+    }
+    printf("\n");
+
+
+
+
+
+
+    while(i < main_game_data->max_iteration){
+    managestate(main_game_data,i);
+    i++;
+    }
+
+
+
+
 
 
     return 0;

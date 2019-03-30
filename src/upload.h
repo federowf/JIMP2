@@ -7,6 +7,7 @@ char** table;
 int width; //wczytana
 int length; // wczytana
 int iteration;
+int ifMoore;
 int max_iteration; //wczytana
 int organism_count; // wczytana
 }game_struct;

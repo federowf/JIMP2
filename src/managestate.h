@@ -5,6 +5,6 @@
 #include <stdlib.h>
 #include "upload.h"
 
-void managestate(game_struct* temp, int ifMoore, int end_iteration);
+void managestate(game_struct* temp, int end_iteration);
 
 #endif

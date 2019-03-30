@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include "createenviroment.h"
 #include "upload.h"
+#include <time.h>
+
+
+
 
 void blank_gamespace (game_struct* main_game_data) {
     int i;
@@ -16,13 +20,12 @@ void blank_gamespace (game_struct* main_game_data) {
     }
 
 
-
-
-    for(i = 0; i < temp->width; i++){
-        for(j = 0; j < temp->length; j++){
+    for( i = 0; i < temp->width; i++){
+        for( j = 0; j < temp->length; j++){
             temp->table[i][j] = '-';
         }
     }
+
 
     main_game_data = temp;
 }
@@ -31,19 +34,20 @@ void blank_gamespace (game_struct* main_game_data) {
 
 void randomize_gamespace(game_struct* temp) {
 
+    srand(time(NULL));
+
     int rand1;
     int rand2;
-    int i;
+    int i = temp->organism_count;
 
-        for (i = 0; i < temp->organism_count; i++) {
+        while(i > 0){
+            rand1 = rand() % (temp->width - 1);
+            rand2 = rand() % (temp->length - 1);
 
-            rand1 = rand() % temp->width;
-            rand2 = rand() % temp->length;
+            if(temp->table[rand1][rand2] == '-'){
 
-            if(temp->table[rand1][rand2] == '#') i--;
-
-            else{
-            temp->table[rand1][rand2] = '#';
+                temp->table[rand1][rand2] = '#';
+                i--;
             }
         }
 }
