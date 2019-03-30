@@ -62,9 +62,9 @@ void write_png_file(char* file_name) {
   fclose(fp);
 }
 
-void process_file(void) {
-  width = 200;
-  height = 200;
+void process_file(int x, int y) {
+  width = x;
+  height = y;
   bit_depth = 8;
   color_type = PNG_COLOR_TYPE_GRAY;
 
@@ -83,10 +83,3 @@ void process_file(void) {
   }
 }
 
-
-int main(int argc, char **argv) {
-  process_file();
-  write_png_file("out.png");
-
-  return 0;
-}

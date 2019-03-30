@@ -54,9 +54,8 @@ int main(int argc, char** argv){
 
     }
 
-
-
-
+        process_file(main_game_data->length, main_game_data->width);
+        write_png_file("out.png");
 
 
     return 0;
