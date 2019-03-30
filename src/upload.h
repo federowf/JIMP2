@@ -11,11 +11,4 @@ int max_iteration;
 int organism_count;
 }game_struct;
 
-typedef struct user_coordinates{
-    int x;
-    int y;
-    struct user_coordinates* next;
-}user_coordinates_t;
-
-
 #endif
