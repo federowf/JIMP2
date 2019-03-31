@@ -10,13 +10,13 @@
 void blank_gamespace (game_struct* main_game_data) {
     int i;
     int j;
-    game_struct* temp = malloc(sizeof(game_struct));
+    game_struct* temp;
 
     temp = main_game_data;
 
-    temp->table = malloc(temp->width * sizeof(char*));
+    temp->table = malloc(temp->width * sizeof(int*));
     for(i = 0; i < temp->width; i++){
-        temp->table[i] = malloc(temp->length * sizeof(char));
+        temp->table[i] = malloc(temp->length * sizeof(int));
     }
 
 
