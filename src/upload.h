@@ -5,7 +5,7 @@ typedef struct user_cord_t{
     int width;
     int length;
     struct user_cord_t* next;
-}user_coordinates;
+}coordinates_list;
 
 
 
@@ -21,6 +21,6 @@ int organism_count; // wczytana
 }game_struct;
 
 void unpack_the_data(FILE *in, game_struct *pStruct);
-void upack_the_coordinates(FILE* in, user_coordinates* head);
+void upack_the_coordinates(FILE* in, coordinates_list* head);
 
 #endif

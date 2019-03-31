@@ -27,9 +27,9 @@ void unpack_the_data(FILE* in, game_struct* result){
     fclose(in);
 }
 
-void upack_the_coordinates(FILE* in_2, user_coordinates* head){
+void upack_the_coordinates(FILE* in_2, coordinates_list* head){
 
-    user_coordinates* temp = malloc(sizeof(user_coordinates));
+    coordinates_list* temp = malloc(sizeof(coordinates_list));
 
     temp = head;
 
@@ -39,7 +39,7 @@ void upack_the_coordinates(FILE* in_2, user_coordinates* head){
      while (fscanf(in_2, "%d %d", &width, &length) != EOF){
          temp->width = width;
          temp->length = length;
-         temp->next = malloc(sizeof(user_coordinates));
+         temp->next = malloc(sizeof(coordinates_list));
          temp = temp->next;
          temp->next = NULL;
      }

@@ -7,22 +7,7 @@
 
 int main(int argc, char** argv){
 
-    FILE* in_2 = fopen(argv[2], "r");
-
-    user_coordinates* cords_input = malloc(sizeof(user_coordinates));
-
-    upack_the_coordinates(in_2,cords_input);
-
-    user_coordinates* temp = malloc(sizeof(user_coordinates));
-
-    temp = cords_input;
-
-    while (temp->next!=NULL){
-        printf("%d % d \n", temp->width,temp->length);
-        temp = temp->next;
-    }
-
-   /* if(argc != 2){
+    if(argc < 2){
         printf("Please attach only your data file, which should contain in order: length, width, organism count, max iteration, how many frames would u like to skip and 0 if you want to simulate by Moores rules or 1 otherwise");
         EXIT_FAILURE;
     }
@@ -37,7 +22,31 @@ int main(int argc, char** argv){
 
     blank_gamespace(main_game_data);
 
-    randomize_gamespace(main_game_data);
+    if (argc == 3){
+
+        FILE* in_2 = fopen(argv[2], "r");
+
+        coordinates_list* cords_input = malloc(sizeof(coordinates_list));
+
+        upack_the_coordinates(in_2,cords_input);
+
+        forced_by_user_gamespace(cords_input,main_game_data);
+
+      /*  coordinates_list* temp = malloc(sizeof(coordinates_list));
+
+        temp = cords_input;
+
+        while (temp->next!=NULL){
+            printf("%d % d \n", temp->width,temp->length);
+            temp = temp->next;
+        }*/
+
+    }
+
+    else{
+        randomize_gamespace(main_game_data);
+    }
+
 
     printf("\nStarting order");
 
@@ -73,7 +82,7 @@ int main(int argc, char** argv){
 
 
    // zapis_png(main_game_data);
-*/
+
 
     return 0;
 }

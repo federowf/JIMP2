@@ -11,4 +11,6 @@ void blank_gamespace (game_struct* main_game_data);
 
 void randomize_gamespace(game_struct* temp);
 
+void forced_by_user_gamespace(coordinates_list* head, game_struct* game);
+
 #endif
