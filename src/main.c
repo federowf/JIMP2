@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "pngexample.h"
 #include "createenviroment.h"
 #include "managestate.h"
 #include "upload.h"
@@ -56,10 +57,8 @@ int main(int argc, char** argv){
     }
 
 
+    zapis_png(main_game_data);
 
-    /* process_file(main_game_data->length, main_game_data->width);
-        write_png_file("out.png");
-    */
 
     return 0;
 }
