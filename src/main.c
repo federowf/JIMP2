@@ -57,7 +57,7 @@ int main(int argc, char** argv){
     }
 
 
-    zapis_png(main_game_data);
+   // zapis_png(main_game_data);
 
 
     return 0;
