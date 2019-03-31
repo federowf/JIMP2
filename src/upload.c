@@ -26,3 +26,24 @@ void unpack_the_data(FILE* in, game_struct* result){
     }
     fclose(in);
 }
+
+void upack_the_coordinates(FILE* in_2, user_coordinates* head){
+
+    user_coordinates* temp = malloc(sizeof(user_coordinates));
+
+    temp = head;
+
+     int width;
+     int length;
+
+     while (fscanf(in_2, "%d %d", &width, &length) != EOF){
+         temp->width = width;
+         temp->length = length;
+         temp->next = malloc(sizeof(user_coordinates));
+         temp = temp->next;
+         temp->next = NULL;
+     }
+
+
+
+}
