@@ -68,6 +68,10 @@ int main(int argc, char** argv){
 
     screenshots* result = malloc(sizeof(screenshots));
 
+    game_struct* main_game_data_head = malloc(sizeof(main_game_data));
+
+    main_game_data_head = main_game_data;
+
 
     if(argc < 4 || forced_by_user_screenshot->skip_frames_as_well == 1) {
 
@@ -80,10 +84,10 @@ int main(int argc, char** argv){
             i += main_game_data->frames_skip;
 
 
-            for (int i = 0; i < main_game_data->width; i++) {
+            for (int k = 0; k < main_game_data->width; k++) {
                 printf("\n");
                 for (int j = 0; j < main_game_data->length; j++) {
-                    printf("%d", main_game_data->table[i][j]);
+                    printf("%d", main_game_data->table[k][j]);
                 }
             }
             printf("\n");
@@ -92,10 +96,17 @@ int main(int argc, char** argv){
         }
     }
 
-    else{
+
+    if (argc > 3){
+
+        main_game_data = main_game_data_head;
+
         while (forced_by_user_screenshot->next != NULL) {
+
             managestate(main_game_data, forced_by_user_screenshot->frame);
+
             get_screenshot(main_game_data,forced_by_user_screenshot->frame,result);
+
             forced_by_user_screenshot = forced_by_user_screenshot->next;
         }
     }
