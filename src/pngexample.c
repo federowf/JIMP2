@@ -22,13 +22,13 @@ void zapis_png (game_struct* outcome_data) {
     color_type = PNG_COLOR_TYPE_GRAY;
 
     number_of_passes = 7;
-    row_pointers = ( png_bytep* ) malloc ( sizeof ( png_bytep ) * outcome_data->length );
-    for ( y = 0; y < outcome_data->length; y++ )
-        row_pointers[y] = ( png_byte* ) malloc( sizeof ( png_byte ) * outcome_data->width );
+    row_pointers = ( png_bytep* ) malloc ( sizeof ( png_bytep ) * outcome_data->width );
+    for ( y = 0; y < outcome_data->width; y++ )
+        row_pointers[y] = ( png_byte* ) malloc( sizeof ( png_byte ) * outcome_data->length );
 
-    for ( y = 0; y < outcome_data->length; y++ ) {
+    for ( y = 0; y < outcome_data->width; y++ ) {
         png_byte* row = row_pointers[y];
-        for ( x = 0; x < outcome_data->width; x++ ) {
+        for ( x = 0; x < outcome_data->length; x++ ) {
             row[x] = outcome_data->table[y + 1][x + 1] == 1 ? 0 : 255;
         }
     }
