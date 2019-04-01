@@ -22,6 +22,13 @@ void zapis_png (game_struct* outcome_data) {
     color_type = PNG_COLOR_TYPE_GRAY;
 
     number_of_passes = 7;
+
+
+
+
+
+
+
     row_pointers = ( png_bytep* ) malloc ( sizeof ( png_bytep ) * outcome_data->width );
     for ( y = 0; y < outcome_data->width; y++ )
         row_pointers[y] = ( png_byte* ) malloc( sizeof ( png_byte ) * outcome_data->length );
@@ -33,7 +40,13 @@ void zapis_png (game_struct* outcome_data) {
         }
     }
 
-    FILE *fp = fopen("./bin/png", "wb" );
+
+
+
+
+
+
+    FILE *fp = fopen("./bin/png.png", "wb" );
     if ( !fp )
         printf ( "[write_png_file] File %s could not be opened for writing", "../bin" );
 
