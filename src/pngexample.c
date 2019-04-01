@@ -67,7 +67,7 @@ void zapis_png (game_struct* outcome_data) {
     if ( setjmp ( png_jmpbuf ( png_ptr ) ) )
         printf ( "[write_png_file] Error during writing header" );
 
-    png_set_IHDR ( png_ptr, info_ptr, outcome_data->width, outcome_data->length,
+    png_set_IHDR ( png_ptr, info_ptr, outcome_data->length, outcome_data->width,
                    bit_depth, color_type, PNG_INTERLACE_NONE,
                    PNG_COMPRESSION_TYPE_BASE, PNG_FILTER_TYPE_BASE );
 
