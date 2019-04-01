@@ -15,18 +15,26 @@ typedef struct outcome{
 }screenshots;
 
 
+typedef struct frames_t{
+    int frame;
+    int skip_frames_as_well;
+    struct frames_t* next;
+}frames;
+
+
+
 typedef struct base_struct{
 int** table;
-int width; //wczytana
-int length; // wczytana
+int width;
+int length;
 int iteration;
 int frames_skip;
 int ifMoore;
-int max_iteration; //wczytana
-int organism_count; // wczytana
+int max_iteration;
+int organism_count;
 }game_struct;
 
 void unpack_the_data(FILE *in, game_struct *pStruct);
 void upack_the_coordinates(FILE* in, coordinates_list* head);
-
+void unpack_frames(frames* head, FILE* in_3);
 #endif

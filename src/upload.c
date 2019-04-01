@@ -44,6 +44,26 @@ void upack_the_coordinates(FILE* in_2, coordinates_list* head){
          temp->next = NULL;
      }
 
+}
 
+void unpack_frames(frames* head, FILE* in_3){
+
+    frames* temp = malloc(sizeof(frames));
+
+    temp = head;
+
+    int skip_as_well;
+
+    int frame;
+
+    fscanf(in_3,"%d",&skip_as_well);
+
+    while (fscanf(in_3,"%d",&frame)!= EOF){
+        temp->frame = frame;
+        temp->skip_frames_as_well = skip_as_well;
+        temp->next = malloc(sizeof(frames));
+        temp = temp->next;
+        temp->next = NULL;
+    }
 
 }

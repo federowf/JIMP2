@@ -4,13 +4,15 @@
 #include "createenviroment.h"
 #include "managestate.h"
 #include "upload.h"
-
+#include "get_screenshot.h"
 int main(int argc, char** argv){
 
     if(argc < 2){
         printf("Please attach only your data file, which should contain in order: length, width, organism count, max iteration, how many frames would u like to skip and 0 if you want to simulate by Moores rules or 1 otherwise");
         EXIT_FAILURE;
     }
+
+    frames* forced_by_user_screenshot = malloc(sizeof(frames));
 
     FILE* in = fopen(argv[1], "r");
 
@@ -22,7 +24,7 @@ int main(int argc, char** argv){
 
     blank_gamespace(main_game_data);
 
-    if (argc == 3){
+    if (argc > 2){
 
         FILE* in_2 = fopen(argv[2], "r");
 
@@ -39,6 +41,19 @@ int main(int argc, char** argv){
         randomize_gamespace(main_game_data);
     }
 
+    if(argc > 3){
+
+        FILE* in_3 = fopen(argv[3],"r");
+
+        unpack_frames(forced_by_user_screenshot,in_3);
+
+        fclose(in_3);
+    }
+
+    else{
+        free(forced_by_user_screenshot);
+    }
+
 
     printf("\nStarting order");
 
@@ -49,34 +64,41 @@ int main(int argc, char** argv){
         }
     }
 
-    int i = 0;
+
 
     screenshots* result = malloc(sizeof(screenshots));
 
 
+    if(argc < 4 || forced_by_user_screenshot->skip_frames_as_well == 1) {
 
-    while(i <= main_game_data->max_iteration){
+        int i = 0;
 
-        printf("\n\nIteration no. %d", i + 1);
-        managestate(main_game_data, i);
-        i += main_game_data->frames_skip;
+        while (i <= main_game_data->max_iteration) {
+
+            printf("\n\nIteration no. %d", i + 1);
+            managestate(main_game_data, i);
+            i += main_game_data->frames_skip;
 
 
-
-
-        for(int i = 0; i < main_game_data->width; i++){
-            printf("\n");
-            for(int j = 0; j < main_game_data->length; j++){
-                printf("%d",main_game_data->table[i][j]);
+            for (int i = 0; i < main_game_data->width; i++) {
+                printf("\n");
+                for (int j = 0; j < main_game_data->length; j++) {
+                    printf("%d", main_game_data->table[i][j]);
+                }
             }
+            printf("\n");
+
+
         }
-        printf("\n");
-
-
-
-
     }
 
+    else{
+        while (forced_by_user_screenshot->next != NULL) {
+            managestate(main_game_data, forced_by_user_screenshot->frame);
+            get_screenshot(main_game_data,forced_by_user_screenshot->frame,result);
+            forced_by_user_screenshot = forced_by_user_screenshot->next;
+        }
+    }
 
    // zapis_png(main_game_data);
 

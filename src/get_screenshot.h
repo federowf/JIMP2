@@ -7,6 +7,6 @@
 
 #include "upload.h"
 
-void get_screenshot(game_struct * main_game_data, int* iterations, screenshots* first_screen);
+void get_screenshot(game_struct * main_game_data, int iterations, screenshots* first_screen);
 
 #endif //GAME_OF_LIFE_GET_SCREENSHOT_H

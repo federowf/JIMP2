@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include "upload.h"
 
-void get_screenshot(game_struct * main_game_data, int* iterations, screenshots* first_screen){
+void get_screenshot(game_struct * main_game_data, int iterations, screenshots* first_screen){
 
     screenshots* result = malloc(sizeof(screenshots));
 
