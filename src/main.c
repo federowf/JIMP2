@@ -105,7 +105,7 @@ int main(int argc, char** argv){
 
             managestate(main_game_data, forced_by_user_screenshot->frame);
 
-           /* printf("\n forced iteration %d", main_game_data->iteration);
+           /*printf("\n forced iteration %d", main_game_data->iteration);
 
             for (int k = 0; k < main_game_data->width; k++) {
                 printf("\n");
@@ -119,7 +119,7 @@ int main(int argc, char** argv){
 
             forced_by_user_screenshot = forced_by_user_screenshot->next;
 
-            zapis_png(main_game_data);
+            //zapis_png(main_game_data);
         }
     }
 
