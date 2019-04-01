@@ -73,24 +73,24 @@ int main(int argc, char** argv){
     main_game_data_head = main_game_data;
 
 
-    if(argc < 4 || forced_by_user_screenshot->skip_frames_as_well == 1) {
+    if(argc < 4) {
 
         int i = 0;
 
         while (i <= main_game_data->max_iteration) {
 
-            printf("\n\nIteration no. %d", i + 1);
+            //printf("\n\nIteration no. %d", i + 1);
             managestate(main_game_data, i);
             i += main_game_data->frames_skip;
 
 
-            for (int k = 0; k < main_game_data->width; k++) {
+            /*for (int k = 0; k < main_game_data->width; k++) {
                 printf("\n");
                 for (int j = 0; j < main_game_data->length; j++) {
                     printf("%d", main_game_data->table[k][j]);
                 }
             }
-            printf("\n");
+            printf("\n");*/
 
 
         }
@@ -104,6 +104,16 @@ int main(int argc, char** argv){
         while (forced_by_user_screenshot->next != NULL) {
 
             managestate(main_game_data, forced_by_user_screenshot->frame);
+
+           /* printf("\n forced iteration %d", main_game_data->iteration);
+
+            for (int k = 0; k < main_game_data->width; k++) {
+                printf("\n");
+                for (int j = 0; j < main_game_data->length; j++) {
+                    printf("%d", main_game_data->table[k][j]);
+                }
+            }
+            printf("\n");*/
 
             get_screenshot(main_game_data,forced_by_user_screenshot->frame,result);
 

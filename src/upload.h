@@ -17,7 +17,6 @@ typedef struct outcome{
 
 typedef struct frames_t{
     int frame;
-    int skip_frames_as_well;
     struct frames_t* next;
 }frames;
 

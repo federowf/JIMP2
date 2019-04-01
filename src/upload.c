@@ -52,15 +52,10 @@ void unpack_frames(frames* head, FILE* in_3){
 
     temp = head;
 
-    int skip_as_well;
-
     int frame;
-
-    fscanf(in_3,"%d",&skip_as_well);
 
     while (fscanf(in_3,"%d",&frame)!= EOF){
         temp->frame = frame;
-        temp->skip_frames_as_well = skip_as_well;
         temp->next = malloc(sizeof(frames));
         temp = temp->next;
         temp->next = NULL;
