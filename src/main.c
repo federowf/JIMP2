@@ -32,15 +32,7 @@ int main(int argc, char** argv){
 
         forced_by_user_gamespace(cords_input,main_game_data);
 
-      /*  coordinates_list* temp = malloc(sizeof(coordinates_list));
-
-        temp = cords_input;
-
-        while (temp->next!=NULL){
-            printf("%d % d \n", temp->width,temp->length);
-            temp = temp->next;
-        }*/
-
+        fclose(in_2);
     }
 
     else{
@@ -59,7 +51,12 @@ int main(int argc, char** argv){
 
     int i = 0;
 
+    screenshots* result = malloc(sizeof(screenshots));
+
+
+
     while(i <= main_game_data->max_iteration){
+
         printf("\n\nIteration no. %d", i + 1);
         managestate(main_game_data, i);
         i += main_game_data->frames_skip;

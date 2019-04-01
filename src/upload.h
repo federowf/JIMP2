@@ -8,6 +8,12 @@ typedef struct user_cord_t{
 }coordinates_list;
 
 
+typedef struct outcome{
+    int** table;
+    int iteration;
+    struct outcome* next;
+}screenshots;
+
 
 typedef struct base_struct{
 int** table;
