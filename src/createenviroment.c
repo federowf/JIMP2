@@ -60,8 +60,6 @@ void forced_by_user_gamespace(coordinates_list* head, game_struct* game){
 
     while (temp->next!=NULL){
         game->table[temp->width][temp->length] = 0;
-
-        printf("%d % d \n", temp->width,temp->length);
         temp = temp->next;
     }
 }

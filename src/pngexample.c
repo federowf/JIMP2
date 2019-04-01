@@ -33,7 +33,7 @@ void zapis_png (game_struct* outcome_data) {
         }
     }
 
-    FILE *fp = fopen("~/JIMP2/bin/png", "wb" );
+    FILE *fp = fopen("./bin/png", "wb" );
     if ( !fp )
         printf ( "[write_png_file] File %s could not be opened for writing", "../bin" );
 
