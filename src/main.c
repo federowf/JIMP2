@@ -126,9 +126,11 @@ int main(int argc, char** argv){
         }
     }
 
+    process_file(main_game_data);
+
     write_png_file("frame.png");
 
-    process_file(main_game_data);
+
 
 
 
