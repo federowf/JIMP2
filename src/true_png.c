@@ -70,19 +70,20 @@ void process_file(game_struct* main_game_data) {
     color_type = PNG_COLOR_TYPE_GRAY;
 
     number_of_passes = 1;
-    row_pointers = (png_bytep*) malloc(sizeof(png_bytep) * height);
-    for (y=0; y<height; y++)
-        row_pointers[y] = (png_byte*) malloc(sizeof(png_byte) * width);
+    row_pointers = (png_bytep *) malloc(sizeof(png_bytep) * height);
+    for (y = 0; y < height; y++)
+        row_pointers[y] = (png_byte *) malloc(sizeof(png_byte) * width);
 
-    for (y=0; y<height; y++) {
-        png_byte* row = row_pointers[y];
-        for (x=0; x<width; x++) {
+    for (y = 0; y < height; y++) {
+        png_byte *row = row_pointers[y];
+        for (x = 0; x < width; x++) {
 
             if (main_game_data->table[x][y] == 1)
-                    row[x] = 255;
+                row[x] = 255;
             if (main_game_data->table[x][y] == 0)
-                    row[x] = 0;
-            }
+                row[x] = 0;
         }
+    }
+}
 
 
