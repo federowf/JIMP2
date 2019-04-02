@@ -86,10 +86,3 @@ void process_file(game_struct* main_game_data) {
         }
 
 
-
-int main(int argc, char **argv) {
-    process_file();
-    write_png_file("out.png");
-
-    return 0;
-}

@@ -5,6 +5,12 @@
 #include "managestate.h"
 #include "upload.h"
 #include "get_screenshot.h"
+#include <string.h>
+#include <stdarg.h>
+#include <unistd.h>
+#include <png.h>
+#include "true_png.h"
+
 int main(int argc, char** argv){
 
     if(argc < 2){
@@ -105,21 +111,15 @@ int main(int argc, char** argv){
 
             managestate(main_game_data, forced_by_user_screenshot->frame);
 
-           /*printf("\n forced iteration %d", main_game_data->iteration);
+            char filename[20];
 
-            for (int k = 0; k < main_game_data->width; k++) {
-                printf("\n");
-                for (int j = 0; j < main_game_data->length; j++) {
-                    printf("%d", main_game_data->table[k][j]);
-                }
-            }
-            printf("\n");*/
+            sprintf(filename, "bin/frame%d.png", forced_by_user_screenshot->frame);
 
-            /*get_screenshot(main_game_data,forced_by_user_screenshot->frame,result);*/
+            write_png_file(filename);
+
+            process_file(main_game_data);
 
             forced_by_user_screenshot = forced_by_user_screenshot->next;
-
-            zapis_png(main_game_data);
         }
     }
 
