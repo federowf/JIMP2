@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pngexample.h"
 #include "createenviroment.h"
 #include "managestate.h"
 #include "upload.h"
@@ -62,16 +61,6 @@ int main(int argc, char** argv){
     }
 
 
-    /*printf("\nStarting order");
-
-    for(int i = 0; i < main_game_data->width; i++){
-        printf("\n");
-        for(int j = 0; j < main_game_data->length; j++){
-            printf("%d",main_game_data->table[i][j]);
-        }
-    }*/
-
-
 
     screenshots* result = malloc(sizeof(screenshots));
 
@@ -86,18 +75,17 @@ int main(int argc, char** argv){
 
         while (i <= main_game_data->max_iteration) {
 
-            //printf("\n\nIteration no. %d", i + 1);
             managestate(main_game_data, i);
+
+            char filename[20];
+
+            sprintf(filename, "bin/frame%d.png", i);
+
+            process_file(main_game_data);
+
+            write_png_file(filename);
+
             i += main_game_data->frames_skip;
-
-
-            /*for (int k = 0; k < main_game_data->width; k++) {
-                printf("\n");
-                for (int j = 0; j < main_game_data->length; j++) {
-                    printf("%d", main_game_data->table[k][j]);
-                }
-            }
-            printf("\n");*/
 
 
         }
@@ -112,12 +100,9 @@ int main(int argc, char** argv){
 
             managestate(main_game_data, forced_by_user_screenshot->frame);
 
-            printf("ROZMIARY %d %d\n",main_game_data->width,main_game_data->length);
-
             char filename[20];
 
             sprintf(filename, "bin/frame%d.png", forced_by_user_screenshot->frame);
-
 
             process_file(main_game_data);
 
