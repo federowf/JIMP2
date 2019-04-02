@@ -112,19 +112,18 @@ int main(int argc, char** argv){
 
             managestate(main_game_data, forced_by_user_screenshot->frame);
 
-            char filename[20];
+            /*char filename[20];
 
-            sprintf(filename, "bin/frame%d.png", forced_by_user_screenshot->frame);
-
-            write_png_file(filename);
-
-            process_file(main_game_data);
+            sprintf(filename, "bin/frame%d.png", forced_by_user_screenshot->frame);*/
 
             forced_by_user_screenshot = forced_by_user_screenshot->next;
         }
     }
 
 
+    write_png_file("frame.png");
+
+    process_file(main_game_data);
 
 
     return 0;
