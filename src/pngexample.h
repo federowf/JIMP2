@@ -5,4 +5,4 @@
 
 
 void zapis_png (game_struct* outcome_data);
-#endif //GAME_OF_LIFE_PNGEXAMPLE_H
+#endif

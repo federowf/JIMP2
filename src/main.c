@@ -115,7 +115,7 @@ int main(int argc, char** argv){
             }
             printf("\n");*/
 
-            //get_screenshot(main_game_data,forced_by_user_screenshot->frame,result);
+            /*get_screenshot(main_game_data,forced_by_user_screenshot->frame,result);*/
 
             forced_by_user_screenshot = forced_by_user_screenshot->next;
 
@@ -123,7 +123,7 @@ int main(int argc, char** argv){
         }
     }
 
-   // zapis_png(main_game_data);
+
 
 
     return 0;

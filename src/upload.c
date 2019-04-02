@@ -11,7 +11,7 @@ void unpack_the_data(FILE* in, game_struct* result){
     int frames;
     int ifMoore;
 
-    fscanf(in,"%d %d %d %d %d %d", &len, &wid, &org_count, &max_it, &frames, &ifMoore); //dimensions
+    fscanf(in,"%d %d %d %d %d %d", &len, &wid, &org_count, &max_it, &frames, &ifMoore);
 
     result->length = len;
     result->width = wid;
