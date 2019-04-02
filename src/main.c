@@ -119,7 +119,6 @@ int main(int argc, char** argv){
             sprintf(filename, "bin/frame%d.png", forced_by_user_screenshot->frame);
 
 
-
             process_file(main_game_data);
 
              write_png_file(filename);
