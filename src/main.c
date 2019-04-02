@@ -114,24 +114,19 @@ int main(int argc, char** argv){
 
             printf("ROZMIARY %d %d\n",main_game_data->width,main_game_data->length);
 
-            /*char filename[20];
+            char filename[20];
 
             sprintf(filename, "bin/frame%d.png", forced_by_user_screenshot->frame);
 
-            write_png_file("frame.png");
 
-            process_file(main_game_data);*/
+
+            process_file(filename);
+
+             write_png_file("frame.png");
 
             forced_by_user_screenshot = forced_by_user_screenshot->next;
         }
     }
-
-    process_file(main_game_data);
-
-    write_png_file("frame.png");
-
-
-
 
 
     return 0;
