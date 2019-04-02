@@ -126,7 +126,9 @@ int main(int argc, char** argv){
         }
     }
 
+    write_png_file("frame.png");
 
+    process_file(main_game_data);
 
 
 
