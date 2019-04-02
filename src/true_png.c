@@ -66,7 +66,7 @@ void write_png_file(char* file_name) {
 void process_file(game_struct* main_game_data) {
     width = main_game_data->length;
     height = main_game_data->width;
-    bit_depth = 8;
+    bit_depth = 7;
     color_type = PNG_COLOR_TYPE_GRAY;
 
     number_of_passes = 1;
