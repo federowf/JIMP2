@@ -69,7 +69,7 @@ int main(int argc, char** argv){
     main_game_data_head = main_game_data;
 
     process_file(main_game_data);
-    write_png_file("start.png");
+    write_png_file("bin/start.png");
 
     if(argc < 4) {
 
