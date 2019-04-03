@@ -18,7 +18,7 @@ void unpack_the_data(FILE* in, game_struct* result){
 
     if(checker!=6){
         printf("Please make sure your game datafile contains in order:table size example (100 100), organism count if you dont want random order just apply 0, max iteration you want to go to, how many iterations would u like to skip, and if u would like to use Moore's rules 0 if yes. Example file: 100 100 0 100 1 0");
-        EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     result->length = len;
