@@ -15,7 +15,7 @@ int main(int argc, char** argv){
 
     if(argc < 2){
         printf("Please attach only your data file, which should contain in order: length, width, organism count, max iteration, how many frames would u like to skip and 0 if you want to simulate by Moores rules or 1 otherwise");
-        EXIT_FAILURE;
+        exit(EXIT_FAILURE);
     }
 
     frames* forced_by_user_screenshot = malloc(sizeof(frames));
