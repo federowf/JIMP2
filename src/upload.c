@@ -9,20 +9,23 @@ void unpack_the_data(FILE* in, game_struct* result){
     int wid;
     int max_it;
     int frames;
-    int ifMoore = 6;
-    int checker;
+    int ifMoore;
+    int checker = 0;
 
     checker=fscanf(in,"%d %d %d %d %d %d", &len, &wid, &org_count, &max_it, &frames, &ifMoore);
 
-    printf("%d",checker);
-
-    if(checker!=6){
+    if(checker != 6){
         printf("Please make sure your game datafile contains in order:table size example (100 100), organism count if you dont want random order just apply 0, max iteration you want to go to, how many iterations would u like to skip, and if u would like to use Moore's rules 0 if yes. Example file: 100 100 0 100 1 0");
         exit(EXIT_FAILURE);
     }
 
     result->length = len;
     result->width = wid;
+
+    if (len != wid){
+        printf("Make sure number of rows and columns are the same");
+        exit(EXIT_FAILURE);
+    }
     result->organism_count = org_count;
     result->max_iteration = max_it;
     result->iteration = 0;
