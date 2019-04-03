@@ -10,11 +10,12 @@ void unpack_the_data(FILE* in, game_struct* result){
     int max_it;
     int frames;
     int ifMoore;
+    int checker;
 
-    fscanf(in,"%d %d %d %d %d %d", &len, &wid, &org_count, &max_it, &frames, &ifMoore);
+    checker=fscanf(in,"%d %d %d %d %d %d", &len, &wid, &org_count, &max_it, &frames, &ifMoore);
 
 
-    if(!(ifMoore == 0 || ifMoore == 1)){
+    if(checker!=6){
         printf("Please make sure your game datafile contains in order:table size example (100 100), organism count if you dont want random order just apply 0, max iteration you want to go to, how many iterations would u like to skip, and if u would like to use Moore's rules 0 if yes. Example file: 100 100 0 100 1 0");
         EXIT_FAILURE;
     }
