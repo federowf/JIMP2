@@ -20,6 +20,9 @@ void unpack_the_data(FILE* in, game_struct* result){
     result->iteration = 0;
     result->ifMoore = ifMoore;
     result->frames_skip = frames;
+    if(ifMoore != 0 || ifMoore != 1){
+        printf("Please make sure your game datafile contains in order:");
+    }
     result->table = malloc(result->length * sizeof(char*));
     for(int i = 0; i < result->length; i++){
         result->table[i] = malloc(result->width * sizeof(char));
