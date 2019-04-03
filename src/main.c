@@ -81,7 +81,7 @@ int main(int argc, char** argv){
 
             char filename[20];
 
-            sprintf(filename, "bin/frame%d.png", i+1);
+            sprintf(filename, "bin/frame%d.png", i);
 
             process_file(main_game_data);
 
