@@ -68,6 +68,8 @@ int main(int argc, char** argv){
 
     main_game_data_head = main_game_data;
 
+    process_file(main_game_data);
+    write_png_file("start.png");
 
     if(argc < 4) {
 
@@ -79,7 +81,7 @@ int main(int argc, char** argv){
 
             char filename[20];
 
-            sprintf(filename, "bin/frame%d.png", i);
+            sprintf(filename, "bin/frame%d.png", i+1);
 
             process_file(main_game_data);
 
