@@ -15,3 +15,6 @@ test_gun: bin/project
 
 test_bad_data: bin/project
 	./bin/project data/data_bad_data
+
+test_no_data: bin/project
+	./bin/project
