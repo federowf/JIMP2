@@ -9,7 +9,7 @@ void unpack_the_data(FILE* in, game_struct* result){
     int wid;
     int max_it;
     int frames;
-    int ifMoore;
+    int ifMoore = 6;
     int checker;
 
     checker=fscanf(in,"%d %d %d %d %d %d", &len, &wid, &org_count, &max_it, &frames, &ifMoore);
