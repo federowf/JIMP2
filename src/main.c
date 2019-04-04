@@ -20,7 +20,11 @@ int main(int argc, char** argv){
 
     frames* forced_by_user_screenshot = malloc(sizeof(frames));
 
-    FILE* in = fopen(argv[1], "r");
+    FILE* in;
+
+    if (argc>=2) {
+        in = fopen(argv[1], "r");
+    }
 
     game_struct* main_game_data = malloc(sizeof(game_struct));
 
