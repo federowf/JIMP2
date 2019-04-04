@@ -18,3 +18,9 @@ test_bad_data: bin/project
 
 test_no_data: bin/project
 	./bin/project
+
+test_von_Neumann: bin/project
+	./bin/project data/data_file_ifMoore_1
+
+test_Moore_random: bin/project
+	./bin/project data/data_file_ifMoore_0
