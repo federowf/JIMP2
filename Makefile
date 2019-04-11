@@ -30,4 +30,3 @@ test_another_gun: bin/project
 
 test_puffer: bin/project
         ./bin/project data/data_file_puffer data/cords_puffer
-~
